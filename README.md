@@ -24,27 +24,28 @@ This Python script allows you to extract data from a Skyflow vault and save it t
 ### Command Line Arguments
 
 ```sh
-- `--vaultid` (required): Vault ID.
-- `--vurl` (required): Vault URL (e.g., `identifier.vault.skyflowapis.com`).
-- `--redaction` (required): Redaction level (`DEFAULT`, `REDACTED`, `MASKED`, `PLAIN_TEXT`).
-- `--pc`: Path to the credentials JSON file (required if `--bt` is not provided).
-- `--bt`: Bearer token to call the API (required if `--pc` is not provided).
-- `--table` (required): Table name in the vault.
-- `--output` (required): Path to the output CSV file.
-- `--output_token_data`: Path to the output tokens CSV file (optional).
-- `--mt`: Maximum number of parallel API calls (default: 5, max: 7) (optional).
-- `--dump_tokens`: Dump tokens in a separate CSV file (optional).
-- `--unique_id_column`: Specify a unique ID column to be the first column in the output CSV (optional).
-- `--rows_per_call`: Number of rows to retrieve per API call (default: 25) (optional).
-- `--log_error`: File path for error log (default: `error_log.txt`) (optional).
+--vaultid:              Required. Vault ID.
+--vurl:                 Required. Vault URL (e.g., ebfc9bee4242.vault.skyflowapis.com).
+--redaction             Required: Redaction level (`DEFAULT`, `REDACTED`, `MASKED`, `PLAIN_TEXT`).
+--pc:                   Required. Path to the credentials JSON file (either --pc or --bt must be specified).
+--bt:                   Required. Bearer token for API calls (either --pc or --bt must be specified).
+--table:                Required. Table name in the vault.
+--output:               Required. Path to the output CSV file.
+--output_token_data:    Optional: Path to the output tokens CSV file. Should only be used with --dump_tokens parameter.
+--dump_tokens:          Optional. Dump tokens in a separate CSV file.
+--rows_per_call:        Optional. Number of rows to be extracted per API call (default: 25).
+--unique_id_column:     Optional. Specify a unique ID column to be the first column in the output CSV
+--mt:                   Optional. Maximum number of parallel API calls (default: 5, max: 7).
+--log_error:            Optional. Path to the log file (default: error.log).
 ```
+
 
 ### Example Usage
 
 ```bash
 python3 data_dump.py \
-  --vaultid d77559286eb94afbba350625d7e31c05 \
-  --vurl ebfc9bee4242.vault.skyflowapis.com \
+  --vaultid YOUR_VAULT_ID \
+  --vurl YOUR_VAULT_URL \
   --redaction PLAIN_TEXT \
   --pc path/to/credentials.json \
   --table table_name \
