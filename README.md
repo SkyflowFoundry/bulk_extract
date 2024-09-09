@@ -70,8 +70,6 @@ Errors and failed records are logged in the specified log and failed records fil
 4. Skyflow Python SDK Should be installed to use this script. Refer to https://github.com/skyflowapi/skyflow-python?tab=readme-ov-file#installation for installing the skyflow SDK.
 5. If you are going to use credentials.json file then make sure the file is in same directory or full path of the file is specified
 
-## License
 
-This is an open-source community script, and Skyflow bears no responsibility for its usage.
 
 
